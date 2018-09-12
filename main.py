@@ -13,10 +13,15 @@ WARNING: The Tor Project devs dont like the idea of changing entry/exit nodes.
 
 Use this script if you know what you are doing and at your own risk.
 '''
+
 config = ConfigParser()
-config.read(os.getcwd() + os.path.sep + 'config.ini')
+q = os.getcwd() + os.path.sep + 'config.ini'
+config.read(q)
 torpath = config.get('tor', 'torpath')
 torrc = config.get('tor', 'torrc')
+if not torpath or not torrc:
+    sys.exit('Missing configuration in < %s >. Aborting.' %q)
+
 c = []
 p = []
 m = False
