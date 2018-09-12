@@ -1,7 +1,11 @@
 # tor-country
 A script to manually set the exit country for [Tor](https://www.torproject.org).
 
-### WARNING: 
+Let's say you are developing or operating a highly distributed application Continent or Global level with POPs (Point of Presence) and/or CDN providing services optimized per region. There are two option for testing such a infrastructure, either by using proxies or using Tor.
+
+With vanilla Tor, though, you can't pick and choose the exit node unless you tell the software what country to use to exit the onion, which is what this script is useful for.
+
+### WARNING
 
 The Tor Project devs don't like the idea of users changing entry/exit nodes.
 
@@ -10,17 +14,33 @@ The Tor Project devs don't like the idea of users changing entry/exit nodes.
 > 
 > [Tor FAQ](https://www.torproject.org/docs/faq.html.en#ChooseEntryExit)
 
+### DISCLAIMER
+
 Use this script if you know what you are doing and at your own risk.
 
 # Set up
 
 - Rename *template-config.ini* to *config.ini*
 - Fill in the path information in *config.ini*
-- Make *main.py* executable and run it.
+- Make *main.py* executable.
 
 ```bash
 chmod u+x ./main.py
 ```
+# Usage
+
+You must pass in a valid country code, like this:
+
+```bash
+./main.py ca
+```
+or, if you want to have more than one country, like this:
+
+```bash
+./main.py ca gb de
+```
+
+Launch Tor.
 
 # See
 - https://www.torproject.org/docs/faq.html.en#ChooseEntryExit
