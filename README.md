@@ -12,6 +12,16 @@ The Tor Project devs don't like the idea of users changing entry/exit nodes.
 
 Use this script if you know what you are doing and at your own risk.
 
+# Set up
+
+- Rename template-config.ini to config.ini
+- Fill in the path information in config.ini
+- Make < main.py > executable and run it.
+
+```bash
+chmod u+x ./main.py
+```
+
 # See
 - https://www.torproject.org/docs/faq.html.en#ChooseEntryExit
 - https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
