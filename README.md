@@ -3,7 +3,7 @@
 
 A script to manually set the exit country for [Tor (anonymity network)](https://www.torproject.org).
 
-Let's say you are developing or operating a highly distributed application Continent or Global level with POPs (Point of Presence) and/or CDN providing services optimized per each region because of regulation compliance, as a feature per se, etc. There are two practical options for testing out such an infrastructure, either by using proxies or using Tor.
+Let's say you are developing or operating a highly distributed application Continent or Global level with POPs (Point of Presence) and/or CDN providing services optimized per each region because of regulation compliance, as a feature per se, etc. There are two practical options for testing out such an infrastructure from the perspective of end users, either by using proxies or using Tor.
 
 With vanilla Tor, though, you can't pick and choose the exit node unless you tell the software what country to use to exit the Onion, which is what this script is useful for.
 
