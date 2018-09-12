@@ -21,7 +21,7 @@ config.read(iso)
 torpath = config.get('tor', 'torpath')
 torrc = config.get('tor', 'torrc')
 if not torpath or not torrc:
-    sys.exit('Missing configuration in < %s >. Aborting.' %iso)
+    sys.exit('Error. Missing configuration in < %s >. Aborting.' %iso)
 
 stdin = []
 prg = []
@@ -34,7 +34,7 @@ for arg in sys.argv[1:]:
             cd.append(line.split('\t'))
     ftl = [v for sublt in cd for v in sublt]
     if not arg.upper() in [s.strip('\n') for s in ftl]:
-        sys.exit('< ' + arg + ' > not a valid country code. See %s for a list' \
+        sys.exit('Error. < ' + arg + ' > not a valid country code. See %s for a list' \
         ' of country codes. Aborting.' %see)
     stdin.append(arg.lower())
 
@@ -49,7 +49,7 @@ if os.path.exists(rc):
             else:
                 prg.append(l)
 else:
-    sys.exit('Missing configuration or wrong values or' \
+    sys.exit('Error. Missing configuration or wrong values or' \
      ' < %s > lacks proper permissions. Aborting.' %rc)
 
 if len(stdin) > 1:
@@ -69,4 +69,5 @@ copyfile(rc, rc + '.bk.' + now)
 with open(rc, "w") as f:
     for l in prg:
         f.write(l)
+
 sys.exit(0)
