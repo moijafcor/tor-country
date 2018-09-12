@@ -9,3 +9,4 @@ A script to manually set the exit country for the Tor Browser.
 # See
 - https://www.torproject.org/docs/faq.html.en#ChooseEntryExit
 - https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
+- https://www.torproject.org/docs/faq.html.en#torrc
