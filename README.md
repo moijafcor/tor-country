@@ -36,10 +36,15 @@ You must pass in a [valid ISO 3166-1 two letter country code](https://en.wikiped
 ```bash
 ./main.py ca
 ```
-or, if you want to have more than one country, like this:
+Or, if you want to have more than one country, like this:
 
 ```bash
 ./main.py ca gb de
+```
+In order to return to Tor's default behaviour of selecting randomly the exit country:
+
+```bash
+./main.py default
 ```
 
 Launch Tor.
