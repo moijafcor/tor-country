@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+
 import datetime
 import os
 from shutil import copyfile
@@ -22,9 +23,13 @@ torrc = config.get('tor', 'torrc')
 if not torpath or not torrc:
     sys.exit('Error. Missing configuration in < %s >. Aborting.' %iso)
 
+# User CLI input
 stdin = []
+# torrc strings
 prg = []
+# Flag to return to default configuration
 default = False
+# See for information on valid country codes
 see = r'https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2'
 
 if not sys.argv[1:]:
