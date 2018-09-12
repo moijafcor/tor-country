@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 import datetime
 from functools import reduce
+import os
 from shutil import copyfile
 import sys
-import os
 if sys.version_info[0] == 3:
     from configparser import ConfigParser
 else:
