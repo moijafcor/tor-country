@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 import datetime
+from functools import reduce
 from shutil import copyfile
 import sys
 import os
@@ -28,11 +29,15 @@ m = False
 v = r'https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2'
 
 for arg in sys.argv[1:]:
-    #TODO: Some real validation should be nice to have
-    if len(arg) > 2:
+    cd = []
+    with open(os.getcwd() + os.path.sep + 'iso3166.csv', "r") as csv:
+        for line in csv:
+            cd.append(line.split('\t'))
+    ftl = [v for sublt in cd for v in sublt]
+    if not arg.upper() in [s.strip('\n') for s in ftl]:
         sys.exit('< ' + arg + ' > not a valid country code. See %s for a list' \
-        'of countries. Aborting.' %v)
-    c.append(arg)
+        ' of country codes. Aborting.' %v)
+    c.append(arg.lower())
 
 rc = torpath + os.path.sep + torrc + os.path.sep + 'torrc'
 if os.path.exists(rc):

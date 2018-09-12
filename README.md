@@ -29,7 +29,7 @@ chmod u+x ./main.py
 ```
 # Usage
 
-You must pass in a valid country code, like this:
+You must pass in a [valid ISO 3166-1 two letter country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2), like this:
 
 ```bash
 ./main.py ca
