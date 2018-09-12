@@ -30,7 +30,7 @@ v = r'https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2'
 
 for arg in sys.argv[1:]:
     cd = []
-    with open(os.getcwd() + os.path.sep + 'iso3166.csv', "r") as csv:
+    with open(os.getcwd() + os.path.sep + 'iso3166.tsv', "r") as csv:
         for line in csv:
             cd.append(line.split('\t'))
     ftl = [v for sublt in cd for v in sublt]
