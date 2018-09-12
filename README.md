@@ -14,9 +14,9 @@ Use this script if you know what you are doing and at your own risk.
 
 # Set up
 
-- Rename template-config.ini to config.ini
-- Fill in the path information in config.ini
-- Make < main.py > executable and run it.
+- Rename *template-config.ini* to *config.ini*
+- Fill in the path information in *config.ini*
+- Make *main.py* executable and run it.
 
 ```bash
 chmod u+x ./main.py
