@@ -41,7 +41,7 @@ if not sys.argv[1:]:
     ' country codes, or < default > to reset Tor to default behaviour.')
 
 rstdin = sys.argv[1:]
-if 'default' in rstdin[0]:
+if 'default' in rstdin[0].lower():
     default = True
 else:
     with open(os.getcwd() + os.path.sep + 'iso3166.tsv', "r") as csv:
