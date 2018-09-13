@@ -24,11 +24,15 @@ if not torpath or not torrc:
     sys.exit('Error. Missing configuration in < %s >. Aborting.' %iso)
 
 # User CLI input
+rstdin = ''
+# User wishes
 stdin = []
 # torrc strings
 prg = []
 # Flag to return to default configuration
 default = False
+# Country code list
+cd = []
 # See for information on valid country codes
 see = r'https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2'
 
@@ -36,16 +40,16 @@ if not sys.argv[1:]:
     sys.exit('Please provide either one or a space-separated list of valid' \
     ' country codes, or < default > to reset Tor to default behaviour.')
 
-for arg in sys.argv[1:]:
-    if 'default' in arg.lower():
-        default = True
-    else:
-        cd = []
-        with open(os.getcwd() + os.path.sep + 'iso3166.tsv', "r") as csv:
-            for line in csv:
-                cd.append(line.split('\t'))
-        ftl = [v for sublt in cd for v in sublt]
-        if not arg.upper() in [s.strip('\n') for s in ftl]:
+rstdin = sys.argv[1:]
+if 'default' in rstdin[0]:
+    default = True
+else:
+    with open(os.getcwd() + os.path.sep + 'iso3166.tsv', "r") as csv:
+        for line in csv:
+            cd.append(line.split('\t'))
+    iso = [v for sublt in cd for v in sublt]
+    for arg in rstdin[0].split(' '):
+        if not arg.upper() in [s.strip('\n') for s in iso]:
             sys.exit('Error. < ' + arg + ' > not a valid country code.' \
             ' See %s for a list of country codes. Aborting.' %see)
         stdin.append(arg.lower())
